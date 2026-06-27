@@ -47,7 +47,6 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-
         if (!email || !password) {
             return res
                 .status(400)
@@ -58,9 +57,10 @@ export const login = async (req, res) => {
             return res.status(404).json({ message: "You are not regsitserd!" });
         }
         // compare original password with the entered password
-        const isMatch = bcrypt.compare(password, isExist.hashed_password);
+        const isMatch = await bcrypt.compare(password, isExist.hashed_password);
         if (!isMatch) {
             return res.status(400).json({ message: "Password is not correct" });
+            // res.error.data.message
         }
         // generate tokens:
         const token = jwt.sign(
@@ -84,6 +84,7 @@ export const login = async (req, res) => {
             },
             token
         });
+        //res.data.message/user/token
     } catch (error) {
         return res.status(500).json({ message: "internal server error" });
     }

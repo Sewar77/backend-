@@ -24,6 +24,7 @@ export const useAuth = () => {
 
         } catch (error) {
             console.error(error);
+            toast.error(error.response.data.message)
         }
     }
     const login = async (formData) => {
@@ -32,6 +33,7 @@ export const useAuth = () => {
                 toast.error("please fill all fields")
                 return
             }
+            console.log(formData);
             const res = await api.post('/auth/login', formData)
             // console.log(res);
             // res.data => message, user, token
@@ -50,7 +52,8 @@ export const useAuth = () => {
             }
             setCurrentUser(user)
         } catch (error) {
-            console.error(error);
+            console.error(error.response.data.message);
+            toast.error(error.response.data.message)
         }
     }
     const logout = async () => {
@@ -62,6 +65,7 @@ export const useAuth = () => {
             navigate("/")
         } catch (error) {
             console.error(error);
+            toast.error(error.response.data.message)
         }
     }
     return { register, login, logout }

@@ -9,6 +9,7 @@ export default function Contact() {
           justifyContent: "center",
           width: "70%",
           alignContent: "center",
+          my: 5,
         }}
       >
         <CardContent>

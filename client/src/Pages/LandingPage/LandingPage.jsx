@@ -2,7 +2,7 @@ import { Container } from "@mui/material";
 import About from "../../Components/About/About";
 import Haeder from "../../Components/Layout/Haeder";
 import Contact from "../../Components/Contact/Contact";
-
+import Categories from "../../Components/Categories/Categories";
 export default function LandingPage() {
   return (
     <>
@@ -10,6 +10,7 @@ export default function LandingPage() {
       <Container sx={{ my: 3, alignContent: "center" }}>
         <About />
         <Contact />
+        <Categories />
       </Container>
     </>
   );

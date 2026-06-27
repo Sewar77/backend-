@@ -1,5 +1,4 @@
 import axios from "axios"
-import toast from "react-hot-toast"
 const token = localStorage.getItem("token")
 
 export const api = axios.create({
