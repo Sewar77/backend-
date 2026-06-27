@@ -1,0 +1,14 @@
+import axios from "axios"
+import toast from "react-hot-toast"
+const token = localStorage.getItem("token")
+
+export const api = axios.create({
+    baseURL: "http://localhost:3000/api",
+    withCredentials: true,
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+    }
+})
+
+
