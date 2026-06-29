@@ -5,6 +5,9 @@ import Register from "./Components/Auth/Register.jsx";
 import { Toaster } from "react-hot-toast";
 import Login from "./Components/Auth/Login.jsx";
 import Home from "./Pages/Home/Home.jsx";
+import AdminLayout from "./Components/Admin/AdminLayout.jsx";
+import ManageUsers from "./Components/Admin/manage/ManageUsers/ManageUsers.jsx";
+import ManageMenu from "./Components/Admin/manage/ManageMenu/ManageMenu.jsx";
 import AdminDashboard from "./Components/Admin/AdminDashboard.jsx";
 
 function App() {
@@ -16,7 +19,13 @@ function App() {
         <Route path="/create-account" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index path="dashboard" element={<AdminDashboard />} />
+          <Route path="manage-users" element={<ManageUsers />} />
+          <Route path="manage-menu" element={<ManageMenu />} />
+          {/* <Route path="manage-catgories" element={<M />} /> */}
+        </Route>
       </Routes>
     </>
   );
