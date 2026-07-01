@@ -3,12 +3,9 @@ import Menu from "../model/menu.Model.js"
 export const createMenuItem = async (req, res) => {
     try {
         const { name, description, price, image, catId, is_publish } = req.body
+        console.log(typeof price);
 
-        if (typeof price !== "number") {
-            return res.status(400).json({
-                message: "price should be a valid number"
-            })
-        }
+
         if (!name || !price || !catId) {
             return res.status(400).json({
                 message: "name, price and category are required!"

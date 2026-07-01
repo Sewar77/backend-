@@ -24,5 +24,22 @@ export const useMenu = () => {
     useEffect(() => {
         fetchAllMenu()
     }, [])
-    return { menu, fetchAllMenu, deleteMenu }
+    const addNewMenuItem = async (menuData) => {
+        try {
+            // validation 
+            if (!menuData.name || !menuData.catId || !menuData.price) {
+                toast.error("Please add name, category name, price")
+                return;
+            }
+            const res = await api.post('/create-menu', menuData)
+            //refresh in front 
+            toast.success(res.data.message)
+            await fetchAllMenu()
+            console.log(menu);
+        } catch (error) {
+            toast.error(error.response.data.message)
+        }
+    }
+
+    return { menu, fetchAllMenu, deleteMenu, addNewMenuItem }
 }

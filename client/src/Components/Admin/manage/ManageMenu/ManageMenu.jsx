@@ -2,24 +2,36 @@ import {
   Button,
   Container,
   Divider,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
+  TextField,
   Typography,
 } from "@mui/material";
 import { useMenu } from "../../../../Hooks/useMenu";
+import AddMenuForm from "./AddMenuForm";
+import { useState } from "react";
 export default function ManageMenu() {
   const { menu, deleteMenu } = useMenu();
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <Container sx={{ my: 3 }}>
         <Typography variant="h3">Manage menu</Typography>
+        <Button
+          variant="contained"
+          sx={{ my: 3 }}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? "Cancel" : "Add New Item"}
+        </Button>
+        {isOpen && <AddMenuForm />}
         <Divider />
         <TableContainer>
-          {" "}
           <Table>
             <TableHead>
               <TableRow>

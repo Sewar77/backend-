@@ -71,7 +71,7 @@ export const login = async (req, res) => {
                 id: isExist._id,
             },
             process.env.JWT_SECRET,
-            { expiresIn: "30m" }
+            { expiresIn: "1d" }
         );
 
         return res.status(200).json({

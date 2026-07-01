@@ -5,6 +5,8 @@ export const protect = async (req, res, next) => {
     if (!tokens) {
         return res.status(401).json({ message: "Not allowed!" })
     }
+    console.log(tokens);
+
     try {
         const decoded = jwt.verify(tokens, process.env.JWT_SECRET)
         req.user = decoded
