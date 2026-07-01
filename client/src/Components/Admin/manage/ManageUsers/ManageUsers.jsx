@@ -13,13 +13,16 @@ import {
 import { useUsers } from "../../../../Hooks/useUsers";
 import { useEffect } from "react";
 export default function ManageUsers() {
-  const { users, fetchAllUsers } = useUsers();
+  const { users, fetchAllUsers, deleteUser } = useUsers();
   useEffect(() => {
     fetchAllUsers();
   }, []);
+  const handleDelete = (userId) => {
+    deleteUser(userId);
+  };
   return (
     <>
-      <Container>
+      <Container sx={{ my: 3 }}>
         <Typography variant="h3">Manage Users</Typography>
         <Divider />{" "}
         <TableContainer>
@@ -42,8 +45,15 @@ export default function ManageUsers() {
                     <TableCell>{user.email}</TableCell>
                     <TableCell>{user.role}</TableCell>
                     <TableCell>
-                      <Button variant="contained" color="error">
+                      <Button
+                        variant="contained"
+                        color="error"
+                        onClick={() => handleDelete(user._id)}
+                      >
                         Delete
+                      </Button>
+                      <Button variant="contained" color="warning">
+                        Edit Role
                       </Button>
                     </TableCell>
                   </TableRow>

@@ -4,7 +4,7 @@ export default function Sidebar() {
   const navigate = useNavigate();
   return (
     <>
-      <Box sx={{ minHeight: "100vh", bgcolor: "beige" }}>
+      <Box>
         <List>
           <ListItemButton onClick={() => navigate("/admin/dashboard")}>
             Dashboard
@@ -15,7 +15,7 @@ export default function Sidebar() {
           <ListItemButton onClick={() => navigate("/admin/manage-menu")}>
             Manage menu
           </ListItemButton>
-          <ListItemButton onClick={() => navigate("/manage-categories")}>
+          <ListItemButton onClick={() => navigate("/admin/manage-categories")}>
             Manage categories
           </ListItemButton>
           <ListItemButton>Manage profile</ListItemButton>

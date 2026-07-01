@@ -9,6 +9,7 @@ import AdminLayout from "./Components/Admin/AdminLayout.jsx";
 import ManageUsers from "./Components/Admin/manage/ManageUsers/ManageUsers.jsx";
 import ManageMenu from "./Components/Admin/manage/ManageMenu/ManageMenu.jsx";
 import AdminDashboard from "./Components/Admin/AdminDashboard.jsx";
+import ManageCategories from "./Components/Admin/manage/ManageCategories/ManageCategories.jsx";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
           <Route index path="dashboard" element={<AdminDashboard />} />
           <Route path="manage-users" element={<ManageUsers />} />
           <Route path="manage-menu" element={<ManageMenu />} />
-          {/* <Route path="manage-catgories" element={<M />} /> */}
+          <Route path="manage-categories" element={<ManageCategories />} />
         </Route>
       </Routes>
     </>

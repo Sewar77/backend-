@@ -6,10 +6,19 @@ export default function AdminLayout() {
   return (
     <>
       <Box sx={{ display: "flex", flexDirection: "row" }}>
-        <Box sx={{ flexShrink: 1 }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            position: "static",
+            height: "100vh",
+            bgcolor: "beige",
+            maxWidth: "350px",
+            overflow: "scroll",
+          }}
+        >
           <Sidebar />
         </Box>
-        <Box sx={{ flexGrow: 4 }}>
+        <Box sx={{ flexGrow: 4, minHeight: "100vh" }}>
           <Outlet />
         </Box>
       </Box>

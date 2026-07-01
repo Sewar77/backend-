@@ -16,6 +16,7 @@ export const getAllUsers = async (req, res) => {
 export const deleteUser = async (req, res) => {
     try {
         const id = req.params.id;
+        console.log(id);
         if (!id) {
             return res.status(400).json({ message: "user not selected" });
         }

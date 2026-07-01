@@ -10,16 +10,12 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { useEffect } from "react";
 import { useMenu } from "../../../../Hooks/useMenu";
 export default function ManageMenu() {
-  const { menu, fetchAllMenu } = useMenu();
-  useEffect(() => {
-    fetchAllMenu();
-  }, []);
+  const { menu, deleteMenu } = useMenu();
   return (
     <>
-      <Container>
+      <Container sx={{ my: 3 }}>
         <Typography variant="h3">Manage menu</Typography>
         <Divider />
         <TableContainer>
@@ -47,15 +43,22 @@ export default function ManageMenu() {
                     </TableCell>
                     <TableCell>{item.price}</TableCell>
                     <TableCell>
-                      <Button variant="contained" color="error">
+                      <Button
+                        variant="contained"
+                        color="error"
+                        onClick={() => deleteMenu(item._id)}
+                      >
                         Delete
+                      </Button>
+                      <Button variant="contained" color="warning">
+                        Edit
                       </Button>
                     </TableCell>
                   </TableRow>
                 );
               })}
             </TableBody>
-          </Table>{" "}
+          </Table>
         </TableContainer>
       </Container>
     </>
